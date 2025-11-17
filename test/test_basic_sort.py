@@ -18,21 +18,39 @@
 
 import pytest
 import numpy as np
+from basic_sort_UNIQUE_SUFFIX import int_sort
 
-def is_sorted(self, int_list):
-    """
-    Testing oracle.
-    """
+# OLD `is_sorted` function, i do not understand why it takes
+# self as a parameter
+# 
+# def is_sorted(self, int_list):
+#     """
+#     Testing oracle.
+#     """
+#     return True
+
+def is_sorted(int_list):
+    last_value = -np.inf
+
+    for i in int_list:
+        # If any element is greater than the previous,
+        # the list is out of order
+        if (last_value > i): return False
+        last_value = i
+    
     return True
 
 @pytest.fixture
 def int_lists():
     # fixture which creates testing data for all tests
     return [[3,2,1],
-	        [1,1,1],
-			np.random.randint(low=-10, high=200, size=5)] 
-    
+            [1,1,1],
+            np.random.randint(low=-10, high=200, size=5)]
+
 def test_bubble(int_lists):
+    for int_list in int_lists:
+        sorted_list = int_sort.bubble()
+        assert is_sorted(sorted_list)
     assert True
 
 def test_quick(int_lists):
