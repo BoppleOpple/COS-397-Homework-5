@@ -49,7 +49,7 @@ def int_lists():
 
 def test_bubble(int_lists):
     for int_list in int_lists:
-        sorted_list = int_sort.bubble()
+        sorted_list = int_sort.bubble(int_list)
         assert is_sorted(sorted_list)
     assert True
 

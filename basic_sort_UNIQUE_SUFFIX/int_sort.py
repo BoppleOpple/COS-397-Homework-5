@@ -26,6 +26,8 @@ def bubble(int_list):
     bubble docstring
     """
     print("bubble sort")
+    # placeholder sort statement
+    return sorted(int_list)
 
 
 def quick(int_list):
