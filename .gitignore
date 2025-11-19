@@ -1,6 +1,7 @@
 # Python stuff
 __pycache__
 .venv
+.pytest_cache
 
 # Annoying MacOS file
 .DS_Store
