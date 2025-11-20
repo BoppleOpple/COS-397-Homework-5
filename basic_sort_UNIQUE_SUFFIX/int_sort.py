@@ -20,7 +20,8 @@
 This module sorts lists of integers...
 """
 
-#I used Google Style Docstring
+
+# I used Google Style Docstring
 def bubble(int_list):
     """
     Sorts a list of numbers in ascending order using bubble sort.
@@ -34,14 +35,14 @@ def bubble(int_list):
     n = len(int_list)
     for i in range(n):
         swapped = False
-        for j in range(n-i-1):
-            if int_list[j] > int_list[j+1]:
-                int_list[j], int_list[j+1] = int_list[j+1], int_list[j]
+        for j in range(n - i - 1):
+            if int_list[j] > int_list[j + 1]:
+                int_list[j], int_list[j + 1] = int_list[j + 1], int_list[j]
                 swapped = True
-        #This if statment is only for if the stament is already sorted.
+        # This if statment is only for if the stament is already sorted.
         if not swapped:
-            break 
-    #print("bubble sort") Do we need this
+            break
+    # Print("bubble sort") Do we need this
     return int_list
 
 
