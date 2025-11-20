@@ -20,14 +20,29 @@
 This module sorts lists of integers...
 """
 
-
+#I used Google Style Docstring
 def bubble(int_list):
     """
-    bubble docstring
+    Sorts a list of numbers in ascending order using bubble sort.
+
+    Args:
+        int_list (list of int or float): The list to be sorted.
+
+    Returns:
+        list: A new list containing the sorted elements.
     """
-    print("bubble sort")
-    # placeholder sort statement
-    return sorted(int_list)
+    n = len(int_list)
+    for i in range(n):
+        swapped = False
+        for j in range(n-i-1):
+            if int_list[j] > int_list[j+1]:
+                int_list[j], int_list[j+1] = int_list[j+1], int_list[j]
+                swapped = True
+        #This if statment is only for if the stament is already sorted.
+        if not swapped:
+            break 
+    #print("bubble sort") Do we need this
+    return int_list
 
 
 def quick(int_list):
