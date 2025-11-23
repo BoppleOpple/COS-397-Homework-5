@@ -50,7 +50,7 @@ def quick(int_list):
     """
     qsort docstring
     """
-    
+
     # TODO: implement quick sort
     return sorted(int_list)
 
