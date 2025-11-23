@@ -32,7 +32,8 @@ from basic_sort_UNIQUE_SUFFIX import int_sort
 #     return True
 def cpu_time(func, data):
     """
-    Measure the CPU usage percentage(using psutil.cpu_percent()) while executing the provided function.
+    Measure the CPU usage percentage(using psutil.cpu_percent())
+    while executing the provided function.
 
 
     Args:
@@ -54,7 +55,6 @@ def cpu_time(func, data):
     cpu_usage = psutil.cpu_percent(interval=None)
 
     return result, cpu_usage
-
 
 
 def is_sorted(int_list):
@@ -95,7 +95,6 @@ def test_quick(int_lists):
     for int_list in int_lists:
         sorted_list = int_sort.quick(int_list)
         assert is_sorted(sorted_list)
-
 
 
 def test_insertion(int_lists):
