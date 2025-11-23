@@ -56,6 +56,7 @@ def cpu_time(func, data):
     return result, cpu_usage
 
 
+
 def is_sorted(int_list):
     last_value = -np.inf
 
@@ -91,8 +92,13 @@ def test_bubble(int_lists):
 
 
 def test_quick(int_lists):
-    assert True
+    for int_list in int_lists:
+        sorted_list = int_sort.quick(int_list)
+        assert is_sorted(sorted_list)
+
 
 
 def test_insertion(int_lists):
-    assert True
+    for int_list in int_lists:
+        sorted_list = int_sort.insertion(int_list)
+        assert is_sorted(sorted_list)

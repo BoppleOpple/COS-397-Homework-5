@@ -1,4 +1,5 @@
 # DevOps Exercise
+![python tests](https://github.com/BoppleOpple/COS-397-Homework-5/actions/workflows/python-tests.yml/badge.svg)
 
 This is a skeleton repository for your exercise. 
 The goal of this exercise is to implement a Python package for sorting integer 
