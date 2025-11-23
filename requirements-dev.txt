@@ -1,4 +1,5 @@
 pytest
+psutil
 setuptools
 build
 flake8
