@@ -5,16 +5,18 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "**"
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
 
 permissions:
   contents: read
 
 jobs:
   build:
-
+    name: python test
     runs-on: ubuntu-latest
 
     steps:
