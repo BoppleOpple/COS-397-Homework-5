@@ -19,6 +19,20 @@
 """
 This module sorts lists of integers...
 """
+import psutil
+
+
+def cpu_time(func, data):
+
+    process = psutil.Process()
+    start_time = process.cpu_times().user
+
+    result = func(data)
+
+    end_time = process.cpu_times().user
+    total_time = end_time - start_time
+    print(total_time)
+    return result, total_time
 
 
 # I used Google Style Docstring
@@ -44,6 +58,10 @@ def bubble(int_list):
             break
     # Print("bubble sort") Do we need this
     return int_list
+
+
+data = [2, 3, 4, 10, 45, 69, 5, 6]
+cpu_time(bubble, data)
 
 
 def quick(int_list):

@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+basic_sort_UNIQUE_SUFFIX/__init__.py
+basic_sort_UNIQUE_SUFFIX/int_sort.py
+basic_sort_UNIQUE_SUFFIX.egg-info/PKG-INFO
+basic_sort_UNIQUE_SUFFIX.egg-info/SOURCES.txt
+basic_sort_UNIQUE_SUFFIX.egg-info/dependency_links.txt
+basic_sort_UNIQUE_SUFFIX.egg-info/top_level.txt
+test/test_basic_sort.py
