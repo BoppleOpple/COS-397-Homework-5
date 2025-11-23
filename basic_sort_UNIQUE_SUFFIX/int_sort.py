@@ -50,11 +50,14 @@ def quick(int_list):
     """
     qsort docstring
     """
-    print("quick sort")
+    
+    # TODO: implement quick sort
+    return sorted(int_list)
 
 
 def insertion(int_list):
     """
     insertion docstring
     """
-    print("insertion sort")
+    # TODO: implement insertion sort
+    return sorted(int_list)
