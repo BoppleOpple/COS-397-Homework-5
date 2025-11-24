@@ -83,7 +83,20 @@ def int_lists():
 
 
 def test_bubble(int_lists):
+    """
+    Tests the bubble sort implementation using a list of integer lists.
 
+    Args:
+        int_lists (list[list[int]]): A list containing multiple lists of integers
+            to be sorted and tested.
+
+    Returns:
+        None
+
+    Raises:
+        Assert Error: If the bubble sort output is not sorted correctly or if
+            the measured CPU time exceeds the allowed limit (100.0).
+    """
     for int_list in int_lists:
         sorted_list, cpu = cpu_time(int_sort.bubble, int_list)
         assert is_sorted(sorted_list)
