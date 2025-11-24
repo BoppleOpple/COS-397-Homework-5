@@ -27,8 +27,8 @@ jobs:
           - windows-latest
           - macos-latest
         version:
-          - 3.9
-          - 3.10
+          - "3.9"
+          - "3.10"
 
     steps:
     - uses: actions/checkout@v4
