@@ -35,6 +35,35 @@ def cpu_time(func, data):
     return result, total_time
 
 
+def mem_usage(data):
+    """
+    Tests the amount of memory used from the insertion sort
+
+    Args:
+        Data: a dataset of numbers to sort
+
+    Returns:
+        memUsed: The amount of memory used in this instance
+                    calculated by finding the difference before and after
+                    running
+    """
+
+    # Grabbing percent of memory used before running the sort
+    memBefore = psutil.virtual_memory().used
+
+    insertion(data)
+
+    # Grabbing percent of memory used after running the sort
+    memAfter = psutil.virtual_memory().used
+
+    # Calculating used memory by finding the difference between
+    # before and after
+    memUsed = memAfter - memBefore
+
+    print(f"Amount of memory used: {memUsed}")
+    return memUsed
+
+
 # I used Google Style Docstring
 def bubble(int_list):
     """
@@ -73,9 +102,35 @@ def quick(int_list):
     return sorted(int_list)
 
 
+# Used Google Docstring format
 def insertion(int_list):
     """
-    insertion docstring
+    Sorts a list of numbers from smallest to largest using Insertion Sort
+
+    Args:
+        int_list: List of ints or floats unsorted
+
+    Returns:
+        sorted_list: list of previously provided numbers
+                        now sorted through insertion sort
     """
-    # TODO: implement insertion sort
-    return sorted(int_list)
+
+    # Making a deep copy of list to avoid changing original
+    sorted_list = int_list.copy()
+
+    for i in range(1, len(sorted_list)):
+
+        current = sorted_list[i]
+        j = i - 1
+
+        # Shift right
+        while j >= 0 and sorted_list[j] > current:
+            sorted_list[j + 1] = sorted_list[j]
+            j -= 1
+
+        sorted_list[j + 1] = current
+
+    return sorted_list
+
+
+mem_usage(data)
