@@ -19,6 +19,7 @@
 """
 This module sorts lists of integers...
 """
+import time
 import psutil
 
 
@@ -64,6 +65,26 @@ def mem_usage(data):
     return memUsed
 
 
+def runtime(data):
+    """
+    Tests the runtime of the quicksort
+
+    Args:
+        data: a dataset of numbers
+
+    Returns:
+        runtime: the runtime of quicksort
+
+    """
+
+    starttime = time.time()
+    quick(data)
+    endtime = time.time()
+    runtime = (endtime - starttime) * 1000
+    print(f"runtime:  {runtime:.4f} milliseconds")
+    return runtime
+
+
 # I used Google Style Docstring
 def bubble(int_list):
     """
@@ -95,11 +116,27 @@ cpu_time(bubble, data)
 
 def quick(int_list):
     """
-    qsort docstring
+    Sorts a list of numbers from smallest to largest using quick Sort
+
+    Args:
+        int_list: List of ints or floats unsorted
+
+    Returns:
+        int_list: list of previously provided numbers
+                    now sorted through quick sort
     """
 
-    # TODO: implement quick sort
-    return sorted(int_list)
+    if len(int_list) <= 1:
+        return int_list
+    else:
+        pivot = int_list[len(int_list) // 2]
+        less = [x for x in int_list if x < pivot]
+        equal = [x for x in int_list if x == pivot]
+        greater = [x for x in int_list if x > pivot]
+        return quick(less) + equal + quick(greater)
+
+
+runtime(data)
 
 
 # Used Google Docstring format
