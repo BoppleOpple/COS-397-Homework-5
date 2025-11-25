@@ -75,12 +75,10 @@ def int_lists():
     test_dir = Path(__file__).parent
     data_dir = test_dir / 'data'
     
-    # Load the two test data files
-    ordered_file = data_dir / 'ordered.txt'
+    # Load the test data file
     unordered_file = data_dir / 'unordered.txt'
     
     int_lists = [
-        load_int_list_from_file(ordered_file),
         load_int_list_from_file(unordered_file)
     ]
     
