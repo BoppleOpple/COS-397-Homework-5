@@ -50,17 +50,13 @@ def mem_usage(data):
                     running
     """
 
-    # Force garbage collection to get a stable baseline
-    gc.collect()
     
-    # Grabbing process-specific memory used before running the sort
+   
     process = psutil.Process()
     memBefore = process.memory_info().rss
 
     insertion(data)
     
-    # Force garbage collection again to ensure consistent measurement
-    gc.collect()
 
     # Grabbing process-specific memory used after running the sort
     memAfter = process.memory_info().rss

@@ -59,43 +59,44 @@ Performance measurements collected from GitHub Actions across different operatin
 ### Ubuntu (Python 3.9)
 | Algorithm | Metric | Measurement |
 |-----------|--------|-------------|
-| Bubble Sort | CPU Time | - s |
-| Quick Sort | Runtime | - ms |
-| Insertion Sort | Memory | - bytes |
+| Bubble Sort | CPU Time | 0.29 s |
+| Quick Sort | Runtime | 3.72 ms |
+| Insertion Sort | Memory | 0 bytes |
 
 ### Windows (Python 3.9)
 | Algorithm | Metric | Measurement |
 |-----------|--------|-------------|
-| Bubble Sort | CPU Time | - s |
-| Quick Sort | Runtime | - ms |
-| Insertion Sort | Memory | - bytes |
+| Bubble Sort | CPU Time | 0.2 s |
+| Quick Sort | Runtime | 4.02 ms |
+| Insertion Sort | Memory | 0 bytes |
 
 ### macOs (Python 3.9)
 | Algorithm | Metric | Measurement |
 |-----------|--------|-------------|
-| Bubble Sort | CPU Time | - s |
-| Quick Sort | Runtime | - ms |
-| Insertion Sort | Memory | - bytes |
+| Bubble Sort | CPU Time | 0.18 s |
+| Quick Sort | Runtime | 2.92 ms |
+| Insertion Sort | Memory | 5259264 bytes |
 
 ### Ubuntu (Python 3.10)
 | Algorithm | Metric | Measurement |
 |-----------|--------|-------------|
-| Bubble Sort | CPU Time | - s |
-| Quick Sort | Runtime | - ms |
-| Insertion Sort | Memory | - bytes |
+| Bubble Sort | CPU Time | 0.24 s |
+| Quick Sort | Runtime | 3.85 ms |
+| Insertion Sort | Memory | 0 bytes |
+
+
 
 ### Windows (Python 3.10)
 | Algorithm | Metric | Measurement |
 |-----------|--------|-------------|
-| Bubble Sort | CPU Time | - s |
-| Quick Sort | Runtime | - ms |
-| Insertion Sort | Memory | - bytes |
+| Bubble Sort | CPU Time | 0.2 s |
+| Quick Sort | Runtime | 3.77 ms |
+| Insertion Sort | Memory | 2228224 bytes |
 
 ### macOs (Python 3.10)
 | Algorithm | Metric | Measurement |
 |-----------|--------|-------------|
-| Bubble Sort | CPU Time | - s |
-| Quick Sort | Runtime | - ms |
-| Insertion Sort | Memory | - bytes |
-
+| Bubble Sort | CPU Time | 0.17 s |
+| Quick Sort | Runtime | 2.52 ms |
+| Insertion Sort | Memory | 2899968 bytes |
 
