@@ -49,13 +49,14 @@ def mem_usage(data):
                     running
     """
 
-    # Grabbing percent of memory used before running the sort
-    memBefore = psutil.virtual_memory().used
+    # Grabbing process-specific memory used before running the sort
+    process = psutil.Process()
+    memBefore = process.memory_info().rss
 
     insertion(data)
 
-    # Grabbing percent of memory used after running the sort
-    memAfter = psutil.virtual_memory().used
+    # Grabbing process-specific memory used after running the sort
+    memAfter = process.memory_info().rss
 
     # Calculating used memory by finding the difference between
     # before and after

@@ -1,35 +1,101 @@
 # DevOps Exercise
 ![python tests](https://github.com/BoppleOpple/COS-397-Homework-5/actions/workflows/python-tests.yml/badge.svg)
 
-This is a skeleton repository for your exercise. 
-The goal of this exercise is to implement a Python package for sorting integer 
-lists using the DevOps software development approach.
+A Python package implementing three sorting algorithms (Bubble Sort, Quick Sort, and Insertion Sort) for integer lists, developed using DevOps best practices. 
 
-> **Warning**: If working on windows, some directories and files in this archive
-will not be visible because they start with a '.'. In the file browser, change 
-the View to display "Hidden items".
+## Repository Description
 
-You will need to:
-1. Add .pre-commit-config.yml which:  
-    1. Limits maximal file size.
-    1. Runs the black and flake8 linters.
-    1. Detect presence of aws credentials private keys.    
-1. Implement the algorithms for bubble, quick and insertion sort, see sort_lib directory,
-code should be documented using standard Python practices (there are several [docstring 
-styles](https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)
-select one and be consistent).
-1. Implement testing using the [pytest](https://docs.pytest.org/en/6.2.x/) framework, see test directory.
-1. Implement linting, style checking using both [flake8](https://flake8.pycqa.org/en/latest/) and 
-[black](https://black.readthedocs.io/en/stable/). 
-1. Modify the GitHub actions workflow so that it tests and builds the package for all 
-three operating systems (OSX/Linux/Win) and for Python versions 3.9 and 3.10. Read more about [Distributing Python packages](https://docs.python.org/3/distributing/index.html).
-1. Modify this file to describe this repository and the DevOps workflow you implemented (add badges to this file showing testing status).
-1. **Optional**: Add a job to the workflow which uploads the wheel to [TestPyPI](https://test.pypi.org/). As every package on TestPyPI is required to have a unique name you need to update the UNIQUE_SUFFIX both in the directory name and in the .toml file. Possibly use your team number.
-    >**Warning**: Do not upload to the authoritative Python Package Index (PyPI).  
+This repository contains a Python package that implements three sorting algorithms and tests one measurement of them:
 
+Bubble Sort - Measures CPU time during execution
+Quick Sort - Measures runtime 
+Insertion Sort - Measures memory usage
 
-Possible work division, three sub-teams:
-1. Adding pre-commit and implementing algorithm code and documentation (tasks 1,2,6).
-1. Implementing testing code, mastering pytest, black, flake8 (tasks 3,4,6).
-1. Understanding pytest, black, flake8 and mastering GitHub workflows (tasks 5,6).
+The package includes tests that the algorithms are working correctly, and collect performance measurements across different operating systems and Python versions.
+
+## DevOps Workflow
+
+This project uses the following DevOps tools and practices:
+
+### GitHub Actions (CI/CD)
+
+The project uses GitHub Actions for continuous integration and testing. The workflow automatically:
+
+- **Triggers**: Runs on every push and pull request to main
+- **Testing**: Tests across Ubuntu, Windows, and macOS, running both Python 3.9 and 3.10.
+
+- **Steps**:
+1. Checkout code
+2. Set up Python environment
+3. Install dependencies
+4. Build the package
+5. Run tests with pytest
+
+### Testing Framework
+
+- **pytest**: Used for writing and running tests
+- Tests validate algorithm correctness and collect performance metrics
+
+### Package Building
+
+- **setuptools**: Used for building the Python package
+
+### Linting
+
+- **flake8**: Static analysis tool that checks code against the style guide and detects errors
+- **black**: Code formatter that formats Python code to a consistent style
+
+### Performance Measurements
+
+The tests collect performance metrics for each algorithm:
+- Bubble Sort: CPU time (seconds)
+- Quick Sort: Runtime (milliseconds)  
+- Insertion Sort: Memory usage (bytes)
+
+## Test Results
+
+Performance measurements collected from GitHub Actions across different operating systems:
+
+### Ubuntu (Python 3.9)
+| Algorithm | Metric | Measurement |
+|-----------|--------|-------------|
+| Bubble Sort | CPU Time | - s |
+| Quick Sort | Runtime | - ms |
+| Insertion Sort | Memory | - bytes |
+
+### Windows (Python 3.9)
+| Algorithm | Metric | Measurement |
+|-----------|--------|-------------|
+| Bubble Sort | CPU Time | - s |
+| Quick Sort | Runtime | - ms |
+| Insertion Sort | Memory | - bytes |
+
+### macOs (Python 3.9)
+| Algorithm | Metric | Measurement |
+|-----------|--------|-------------|
+| Bubble Sort | CPU Time | - s |
+| Quick Sort | Runtime | - ms |
+| Insertion Sort | Memory | - bytes |
+
+### Ubuntu (Python 3.10)
+| Algorithm | Metric | Measurement |
+|-----------|--------|-------------|
+| Bubble Sort | CPU Time | - s |
+| Quick Sort | Runtime | - ms |
+| Insertion Sort | Memory | - bytes |
+
+### Windows (Python 3.10)
+| Algorithm | Metric | Measurement |
+|-----------|--------|-------------|
+| Bubble Sort | CPU Time | - s |
+| Quick Sort | Runtime | - ms |
+| Insertion Sort | Memory | - bytes |
+
+### macOs (Python 3.10)
+| Algorithm | Metric | Measurement |
+|-----------|--------|-------------|
+| Bubble Sort | CPU Time | - s |
+| Quick Sort | Runtime | - ms |
+| Insertion Sort | Memory | - bytes |
+
 
