@@ -18,8 +18,6 @@
 
 import pytest
 import numpy as np
-import psutil
-import time
 from pathlib import Path
 from basic_sort_UNIQUE_SUFFIX import int_sort
 
@@ -32,31 +30,6 @@ from basic_sort_UNIQUE_SUFFIX import int_sort
 #     Testing oracle.
 #     """
 #     return True
-def cpu_usage(func, data):
-    """
-    Measure the CPU usage percentage(using psutil.cpu_percent())
-    while executing the provided function.
-
-
-    Args:
-        func (Callable): The function to execute and measure.
-        data (list of int): The input data to pass to the function.
-
-    Returns:
-        tuple: A tuple containing:
-            - list of int: The result returned by the function.
-            - float: The CPU usage percentage during execution.
-    """
-    # initialize cpu_percent with interval=None to start measurement
-    psutil.cpu_percent(interval=None)
-
-    result = func(data)
-
-    # get the CPU percentage since last call
-    # reminder this will always give 0 for small test
-    cpu_usage = psutil.cpu_percent(interval=None)
-
-    return result, cpu_usage
 
 
 def is_sorted(int_list):
@@ -130,27 +103,20 @@ def test_bubble(int_lists):
             the measured CPU time exceeds the allowed limit (100.0).
     """
     for int_list in int_lists:
-        sorted_list, cpu = cpu_usage(int_sort.bubble, int_list)
+        sorted_list, cpu_time = int_sort.cpu_time(int_sort.bubble, int_list)
         assert is_sorted(sorted_list)
-        assert cpu >= 0
-        print(f"Bubble Sort CPU Usage: {cpu}%")
+        assert cpu_time >= 0
 
 
 def test_quick(int_lists):
     for int_list in int_lists:
-        start = time.time()
+        runtime_ms = int_sort.runtime(int_list)
         sorted_list = int_sort.quick(int_list)
-        runtime = time.time() - start
         assert is_sorted(sorted_list)
-        print(f"Quick Sort Runtime: {runtime:.6f} seconds")
 
 
 def test_insertion(int_lists):
     for int_list in int_lists:
-        process = psutil.Process()
-        mem_before = process.memory_info().rss
+        mem_used = int_sort.mem_usage(int_list)
         sorted_list = int_sort.insertion(int_list)
-        mem_after = process.memory_info().rss
-        mem_used = mem_after - mem_before
         assert is_sorted(sorted_list)
-        print(f"Insertion Sort Memory Usage: {mem_used} bytes")
