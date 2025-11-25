@@ -19,6 +19,7 @@
 import pytest
 import numpy as np
 import psutil
+from pathlib import Path
 from basic_sort_UNIQUE_SUFFIX import int_sort
 
 
@@ -70,16 +71,46 @@ def is_sorted(int_list):
     return True
 
 
+def load_int_list_from_file(file_path):
+    """
+    Load a list of integers from a text file.
+    Each line should contain a single integer.
+    
+    Args:
+        file_path (Path): Path to the text file containing integers.
+        
+    Returns:
+        list[int]: List of integers read from the file.
+    """
+    int_list = []
+    with open(file_path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if line:  # Skip empty lines
+                int_list.append(int(line))
+    return int_list
+
+
 @pytest.fixture
 def int_lists():
-    # fixture which creates testing data for all tests
-    return [
-        [3, 2, 1],
-        [1, 1, 1],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-        np.random.randint(low=-10, high=200, size=5),
+    """
+    Creates testing data for all tests by loading from text files.
+    Reads ordered.txt and unordered.txt from the test/data directory.
+    """
+    # Get the directory where this test file is located
+    test_dir = Path(__file__).parent
+    data_dir = test_dir / 'data'
+    
+    # Load the two test data files
+    ordered_file = data_dir / 'ordered.txt'
+    unordered_file = data_dir / 'unordered.txt'
+    
+    int_lists = [
+        load_int_list_from_file(ordered_file),
+        load_int_list_from_file(unordered_file)
     ]
+    
+    return int_lists
 
 
 def test_bubble(int_lists):
