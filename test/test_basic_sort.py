@@ -19,6 +19,7 @@
 import pytest
 import numpy as np
 import psutil
+import time
 from pathlib import Path
 from basic_sort_UNIQUE_SUFFIX import int_sort
 
@@ -131,17 +132,25 @@ def test_bubble(int_lists):
     for int_list in int_lists:
         sorted_list, cpu = cpu_usage(int_sort.bubble, int_list)
         assert is_sorted(sorted_list)
-        # using the cpu somehow
         assert cpu >= 0
+        print(f"Bubble Sort CPU Usage: {cpu}%")
 
 
 def test_quick(int_lists):
     for int_list in int_lists:
+        start = time.time()
         sorted_list = int_sort.quick(int_list)
+        runtime = time.time() - start
         assert is_sorted(sorted_list)
+        print(f"Quick Sort Runtime: {runtime:.6f} seconds")
 
 
 def test_insertion(int_lists):
     for int_list in int_lists:
+        process = psutil.Process()
+        mem_before = process.memory_info().rss
         sorted_list = int_sort.insertion(int_list)
+        mem_after = process.memory_info().rss
+        mem_used = mem_after - mem_before
         assert is_sorted(sorted_list)
+        print(f"Insertion Sort Memory Usage: {mem_used} bytes")
