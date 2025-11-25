@@ -42,4 +42,4 @@ jobs:
         pip install -r requirements-dev.txt
     - name: Test with pytest
       run: |
-        pytest
+        pytest -s -v
