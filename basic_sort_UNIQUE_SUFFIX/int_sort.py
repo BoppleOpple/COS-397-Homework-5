@@ -20,7 +20,6 @@
 This module sorts lists of integers...
 """
 import time
-import gc
 import psutil
 
 
